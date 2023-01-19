@@ -59,6 +59,31 @@ indexes_132_data = [
     (132, 'white-2', "https://pokeapi.co/api/v2/version/22/")
 ]
 
+held_items_0_version_data = [
+    (5, 'ruby', "https://pokeapi.co/api/v2/version/7/"),
+    (5, "sapphire", "https://pokeapi.co/api/v2/version/8/"),
+    (5, "emerald", "https://pokeapi.co/api/v2/version/9/"),
+    (5, "firered", "https://pokeapi.co/api/v2/version/10/"),
+    (5, "leafgreen", "https://pokeapi.co/api/v2/version/11/"),
+    (5, "diamond", "https://pokeapi.co/api/v2/version/12/"),
+    (5, "pearl", "https://pokeapi.co/api/v2/version/13/"),
+    (5, "platinum", "https://pokeapi.co/api/v2/version/14/"),
+    (5, "heartgold", "https://pokeapi.co/api/v2/version/15/"),
+    (5, "soulsilver", "https://pokeapi.co/api/v2/version/16/"),
+    (5, "black", "https://pokeapi.co/api/v2/version/17/"),
+    (5, "white", "https://pokeapi.co/api/v2/version/18/"),
+    (5, "black-2", "https://pokeapi.co/api/v2/version/21/"),
+    (5, "white-2", "https://pokeapi.co/api/v2/version/22/"),
+    (5, "x", "https://pokeapi.co/api/v2/version/23/"),
+    (5, "y", "https://pokeapi.co/api/v2/version/24/"),
+    (5, "omega-ruby", "https://pokeapi.co/api/v2/version/25/"),
+    (5, "alpha-sapphire", "https://pokeapi.co/api/v2/version/26/"),
+    (5, "sun", "https://pokeapi.co/api/v2/version/27/"),
+    (5, "moon", "https://pokeapi.co/api/v2/version/28/"),
+    (5, "ultra-sun", "https://pokeapi.co/api/v2/version/29/"),
+    (5, "ultra-moon", "https://pokeapi.co/api/v2/version/30/"),
+]
+
 
 @pytest.fixture()
 def game_indexes_object():
