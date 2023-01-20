@@ -1,8 +1,29 @@
-import pytest
+import json
 
+import pytest
+import requests
+from selenium import webdriver
+
+from constants.base import BASE_URL, DRIVER_PATH
+from pages.start_page import StartPage
 from pokemongo.pokemon_objects import PokemonData
 
-POKEMON_URL = 'https://pokeapi.co/api/v2/pokemon/ditto/'
+pokemon_ditto_api_response = requests.get(url='https://pokeapi.co/api/v2/pokemon/ditto/').json()
+pokemon_species_api_response = requests.get(url='https://pokeapi.co/api/v2/pokemon-species/aegislash').json()
+pokemon_type_api_response = requests.get(url='https://pokeapi.co/api/v2/type/3').json()
+pokemon_battle_armor_api_response = requests.get(url='https://pokeapi.co/api/v2/ability/battle-armor').json()
+
+with open('pokemon_ditto.json', 'w') as file:
+    json.dump(pokemon_ditto_api_response, file, indent=2)
+
+with open('pokemon_species.json', 'w') as file:
+    json.dump(pokemon_species_api_response, file, indent=2)
+
+with open('pokemon_type.json', 'w') as file:
+    json.dump(pokemon_type_api_response, file, indent=2)
+
+with open('pokemon_battle_armor.json', 'w') as file:
+    json.dump(pokemon_battle_armor_api_response, file, indent=2)
 
 
 @pytest.fixture()
@@ -34,9 +55,9 @@ def ditto_forms_object():
 
 
 indexes_76_data = [
-    (76, 'red', "https://pokeapi.co/api/v2/version/1/"),
-    (76, 'blue', "https://pokeapi.co/api/v2/version/2/"),
-    (76, 'yellow', "https://pokeapi.co/api/v2/version/3/")
+    (76, 0, 'red', "https://pokeapi.co/api/v2/version/1/"),
+    (76, 1, 'blue', "https://pokeapi.co/api/v2/version/2/"),
+    (76, 2, 'yellow', "https://pokeapi.co/api/v2/version/3/")
 ]
 
 indexes_132_data = [
@@ -58,6 +79,8 @@ indexes_132_data = [
     (132, 'black-2', "https://pokeapi.co/api/v2/version/21/"),
     (132, 'white-2', "https://pokeapi.co/api/v2/version/22/")
 ]
+
+# url
 
 held_items_0_version_data = [
     (5, 'ruby', "https://pokeapi.co/api/v2/version/7/"),
@@ -99,3 +122,12 @@ def gold_indexes_object():
     gold.url = "https://pokeapi.co/api/v2/version/4/"
     gold.game_index = 132
     return gold
+
+
+@pytest.fixture()
+def elements_page():
+    driver = webdriver.Chrome(DRIVER_PATH)
+    driver.get(BASE_URL)
+    driver.implicitly_wait(1.5)
+    yield StartPage(driver)
+    driver.close()

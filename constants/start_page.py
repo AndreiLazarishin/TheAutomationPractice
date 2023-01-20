@@ -5,3 +5,4 @@ class StartPageConsts:
     WIDGETS_CARD_XPATH = './/div[h5[text()="Widgets"]]'
     INTERACTIONS_CARD_XPATH = './/div[h5[text()="Interactions"]]'
     BOOK_STORE_APPLICATION_CARD_XPATH = './/div[h5[text()="Book Store Application"]]'
+
