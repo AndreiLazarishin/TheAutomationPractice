@@ -26,6 +26,15 @@ with open('pokemon_battle_armor.json', 'w') as file:
     json.dump(pokemon_battle_armor_api_response, file, indent=2)
 
 
+@pytest.fixture(scope='function')
+def start_page():
+    driver = webdriver.Chrome(DRIVER_PATH)
+    driver.get(BASE_URL)
+    driver.implicitly_wait(1.5)
+    yield StartPage(driver)
+    driver.close()
+
+
 @pytest.fixture()
 def limber_abilities_object():
     limber = PokemonData()

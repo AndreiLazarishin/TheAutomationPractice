@@ -31,7 +31,6 @@ class BasePage:
     def fill_field(self, xpath, value):
         """Fill, Clear and fill fields"""
         element = self.wait_until_clickable(xpath)
-        # element.clear()
         element.send_keys(value)
 
     def click(self, xpath):
